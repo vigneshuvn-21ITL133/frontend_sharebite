@@ -4,7 +4,6 @@ import '../styles/Login.css'
 export default function Login() {
   return (
     <div>
-        <Link to="/login"></Link>
       <div className="login-container">
         <h1>Welcome Back! 👋</h1>
         <p>Login to continue</p>
@@ -18,13 +17,13 @@ export default function Login() {
             <input type="password" placeholder="Enter the password" required /><br />
           </div>
           <div className="Forgetpassword">
-            <a href="Forget.html">Forget password?</a><br /><br />
+            <Link to="/forget">Forget password?</Link><br /><br />
           </div>
           <div>
-            <button type="submit" className="login-btn">Log in</button>
+            <button type="submit" className="login-button">Log in</button>
           </div>
           <div>
-            <span>Don't have account? <Link to="/signup">signup</Link></span>
+            <span>Don't have account? <Link className="signuplink" to="/signup">signup</Link></span>
           </div>
         </form>
       </div>

@@ -1,13 +1,13 @@
+import '../styles/Navbar.css'
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <div className="navbar">
+    <div className="navbar-container">
       <div className="logo-container">
         <img src={Logo} alt="logo" />
       </div>
-
       <nav className="nav-menu">
         <Link className="navlink" to="/">Home</Link>
         <Link className="navlink" to="/donation">Donations</Link>
@@ -17,8 +17,7 @@ export default function Navbar() {
         <Link className="navlink" to="/aboutus">About us</Link>
         <Link className="navlink" to="/contact">Contact</Link>
       </nav>
-
-      <nav className="login-container">
+      <nav className="button-container">
         <Link className="login-btn" to="/login">Log in</Link>
         <Link className="signup-btn" to="/signup">Sign up</Link>
       </nav>

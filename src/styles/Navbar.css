@@ -1,0 +1,56 @@
+.navbar-container{
+    display: flex;
+    height: 120px;
+    align-items: center;
+    gap: 50px;
+    border-bottom: 2px solid green;
+}
+
+.logo-container img{
+   width: 180px;
+   height: 250px;
+}
+
+.nav-menu{
+    display: flex;
+    gap: 15px;
+}
+
+
+.navlink{
+    text-decoration: none;
+    color: grey;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.navlink:hover{
+    color: black;
+    text-decoration:underline;
+}
+
+.button-container{
+    display: flex;
+    padding-left: 8%;
+    gap: 20px;
+}
+
+.login-btn{
+    text-decoration: none;
+    color: green;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: 1px solid greenyellow;
+    border-radius: 15px;
+}
+
+.signup-btn{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    background-color: green;
+    border-radius: 15px;   
+}
+
+

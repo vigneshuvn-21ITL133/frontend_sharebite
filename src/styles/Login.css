@@ -30,7 +30,7 @@ input{
    color: green;
 }
 
-.login-btn{
+.login-button{
     padding-right: 130px;
     padding-left: 130px;
     padding-top: 10px;
@@ -41,6 +41,6 @@ input{
     border: none;
 }
 
-a{
+.signuplink{
     color: green;
 }

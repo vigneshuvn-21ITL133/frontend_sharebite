@@ -1,10 +1,10 @@
 import '../styles/Signup.css'
-
+import { Link } from 'react-router-dom'
 
 export default function Signup() {
     return (
         <div>
-            <div className="login-container">
+            <div className="signup-container">
                 <h1>Create account? 🌿</h1>
                 <p>Join us and make an impact</p>
                 <form>
@@ -38,10 +38,10 @@ export default function Signup() {
                         <br />
                     </div>
                     <div>
-                        <button className="signup-btn" type="submit">Sign up</button>
+                        <button className="signup-button" type="submit">Sign up</button>
                     </div>
-                    <div className="login-content">
-                        <span>Already have an account? <a href="Login.html">Login</a></span>
+                    <div className="login-navigation-content">
+                        <span>Already have an account? <Link to="/login">Login</Link></span>
                     </div>
                 </form>
             </div>

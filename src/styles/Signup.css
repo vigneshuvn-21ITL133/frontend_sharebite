@@ -1,0 +1,71 @@
+
+.login-container{
+    margin-top: 50px;
+    justify-self: center;
+      line-height: 30px;
+    border: 1px solid rgb(232, 229, 229);
+    width: auto;
+    height: auto;
+    padding: 20px;
+    
+}
+
+form{
+    backdrop-filter: blur(5px);
+}
+
+label{
+    font-weight: bolder;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    border-color: grey;
+}
+
+.Forgetpassword{
+    justify-self: end;
+}
+.Forgetpassword a{
+   color: green;
+}
+
+.signup-btn{
+    padding-right: 130px;
+    padding-left: 130px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+.check{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.check p{
+    font-size: 10px;
+}
+
+.check span{
+    color: green;
+}
+
+#checkboxsize{
+    width: 20px;
+    height: 30px;
+}
+
+.login-content{
+  text-align: center;
+}
+
+.login-content a{
+  color: green;
+}

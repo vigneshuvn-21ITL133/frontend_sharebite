@@ -1,0 +1,46 @@
+
+.login-container{
+    margin-top: 50px;
+    justify-self: center;
+      line-height: 30px;
+    border: 1px solid rgb(232, 229, 229);
+    padding: 20px;
+    height: auto;
+    
+}
+
+form{
+    backdrop-filter: blur(5px);
+}
+
+label{
+    font-weight: bolder;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.Forgetpassword{
+    justify-self: end;
+}
+.Forgetpassword a{
+   color: green;
+}
+
+.login-btn{
+    padding-right: 130px;
+    padding-left: 130px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+a{
+    color: green;
+}

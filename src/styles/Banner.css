@@ -1,0 +1,106 @@
+
+.banner-content-container{
+  display: flex;
+  height: 600px;
+  flex-direction: column;
+  background-image: url(../assets/homebackground.png);
+ background-size: cover;
+ background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.banner-green-header{
+  font-size: 30px;
+  font-weight: bold;
+  color: green;
+}
+
+.banner-details-container{
+  padding-left: 40px;
+  padding-top: 40px;
+}
+
+.banner-heading-content h1{
+  font-size: 2.5rem;
+}
+
+.banner-heading-content span{
+  color: green;
+}
+
+.banner-button-content{
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.banner-donate-btn{
+   padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-radius: 20px;
+  border: none;
+  background-color: green;
+  color: aliceblue;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.banner-Request-btn{
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.banner-donate-btn-aln{
+  display: flex;
+  align-items: center;
+}
+
+.banner-Request-btn-aln{
+  display: flex;
+   align-items: center;
+}
+
+.banner-icon-details{
+  width: 500px;
+  height: auto;
+  margin-top: 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.banner-icon-details h2{
+  font-size: 15px;
+}
+
+.banner-icon-details-types{
+   display: flex;
+   gap: 15px;
+   align-items: center;
+   backdrop-filter: blur(10px);
+}
+
+.banner-green-board{
+  margin-top: 50px;
+  width: 800px;
+  height: 40px;
+  justify-self: center;
+  background-image: linear-gradient(white,rgb(15, 249, 15));
+  text-align: center;
+  border-radius: 20px;
+  color: green;
+}
+
+
+.banner-video-content{
+  margin-top: 50px;
+  justify-self: center;
+}

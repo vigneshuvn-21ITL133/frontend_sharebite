@@ -17,7 +17,7 @@ export default function Login() {
             <input type="password" placeholder="Enter the password" required /><br />
           </div>
           <div className="Forgetpassword">
-            <Link to="/forget">Forget password?</Link><br /><br />
+            <Link to="/forgetpassword">Forget password?</Link><br /><br />
           </div>
           <div>
             <button type="submit" className="login-button">Log in</button>

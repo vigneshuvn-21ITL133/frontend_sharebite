@@ -1,0 +1,60 @@
+
+.about-content-container {
+    margin-top: 40px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../ASSETS/aboutus.png);
+    background-size: contain;
+    background-position-x: right 15%;
+    background-repeat: no-repeat;
+
+}
+
+.about-details {
+    padding-left: 100px;
+    padding-top: 30px;
+}
+
+
+.about-details p{
+    line-height: 30px;
+}
+
+.about-points {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.about-items {
+    display: flex;
+    gap: 20px;
+}
+
+.about-icon-details{
+  width: auto;
+  height: auto;
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+  background-color: beige;
+  justify-content: space-around;
+  
+  
+}
+
+.about-icon-details h2{
+  font-size: 1.5rem;
+  color: #48A111;
+}
+
+.about-icon-details-types{
+   display: flex;
+   align-items: center;
+   backdrop-filter: blur(10px);
+   gap: 10px;
+   /* padding-left: 100px;
+   padding-right: 100px; */
+}

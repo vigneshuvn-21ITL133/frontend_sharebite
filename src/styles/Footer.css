@@ -1,0 +1,64 @@
+.footer-container{
+    margin-top: 100px;
+    padding-right: 30px;
+    padding-left: 30px;
+    display: flex;
+    height: auto;
+    gap: 200px
+}
+
+
+.footer-logo-container p{
+    color: grey;
+    font-size: 18px;
+}
+
+.Footer-navbar-quicks{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    
+}
+
+.footer-navlink{
+    text-decoration: none;
+    color: grey;
+    font-size: 18px;
+}
+
+.Footer-navbar-resource{
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+
+.contactus{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactus h4{
+    color: black;
+}
+
+.contactus p{
+   color: grey;
+   font-size: 18px;
+}
+
+.footer-contact-items{
+    display: flex;
+    gap: 10px;
+}
+
+.footer-contact-items span{
+    color: grey;
+}
+
+
+.footer-copyrights{
+    padding-top: 10px;
+    text-align: center;
+    color: green;
+}

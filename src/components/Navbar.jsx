@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
+    <>
     <div className="navbar-container">
       <div className="logo-container">
-        <img src={Logo} alt="logo" />
+        <img src={Logo} alt="logo" width={180} height={150}/>
       </div>
       <nav className="nav-menu">
         <Link className="navlink" to="/">Home</Link>
@@ -22,5 +23,6 @@ export default function Navbar() {
         <Link className="signup-btn" to="/signup">Sign up</Link>
       </nav>
     </div>
+    </>
   );
 }

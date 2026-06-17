@@ -40,7 +40,7 @@ function Footer() {
             <Link className="footer-navlink" to="/impact">
               Impact
             </Link>
-            <Link className="footer-navlink" to="/aboutus">
+            <Link className="footer-navlink" to="/about">
               About us
             </Link>
           </nav>

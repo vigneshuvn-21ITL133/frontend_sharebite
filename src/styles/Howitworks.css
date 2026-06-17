@@ -1,0 +1,31 @@
+.how-container{
+    padding: 20px;
+}
+
+.how-heading p{
+    color: grey;
+}
+
+.how-it-works img{
+     width: 100%;
+     height: 500px;
+}
+
+
+.howit-button-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.howit-works-button{
+    display: inline-block;
+    color: white;
+    padding: 10px 25px;
+    background-color: green;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}

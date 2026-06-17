@@ -15,7 +15,7 @@ export default function Navbar() {
         <Link className="navlink" to="/request">Requests</Link>
         <Link className="navlink" to="/howitworks">How it works</Link>
         <Link className="navlink" to="/impact">Impact</Link>
-        <Link className="navlink" to="/aboutus">About us</Link>
+        <Link className="navlink" to="/about">About us</Link>
         <Link className="navlink" to="/contact">Contact</Link>
       </nav>
       <nav className="button-container">

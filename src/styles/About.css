@@ -4,7 +4,7 @@
     height: 600px;
     display: flex;
     flex-direction: column;
-    background-image: url(../ASSETS/aboutus.png);
+    background-image: url(../assets/aboutus.png);
     background-size: contain;
     background-position-x: right 15%;
     background-repeat: no-repeat;

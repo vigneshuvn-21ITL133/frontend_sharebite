@@ -1,0 +1,70 @@
+.request-container {
+    min-height: 100vh;
+    background: #f8faf8;
+    padding: 40px;
+  }
+  
+  .request-card {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  }
+  
+  .request-header {
+    margin-bottom: 30px;
+  }
+  
+  .request-header h1 {
+    color: #198754;
+    margin-bottom: 10px;
+  }
+  
+  .request-header p {
+    color: #666;
+  }
+  
+  .request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #198754;
+  }
+  
+  .submit-btn {
+    padding: 15px;
+    background: #198754;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background: #157347;
+  }

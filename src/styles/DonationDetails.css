@@ -1,0 +1,32 @@
+   .details-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 24px;
+    display: flex;
+    gap: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .details-image img{
+     width: 200px;
+     height: 250px;
+  }
+
+
+ .details-content{
+    margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+ }
+
+ .details-request-btn{
+     padding: 10px 250px;
+     background-color: green;
+     border-radius: 15px;
+     border: none;
+     color: white;
+     cursor: pointer;
+ }

@@ -6,18 +6,16 @@ import { Routes, Route } from "react-router-dom";
 // import Forget from "./components/Forget";
 // import Howitworks from "./pages/Howitworks";
 // import Impact from "./pages/Impact";
-// import Dashboard from "./pages/clientdashboard/dashboard";
 import BrowseDonations from "./pages/clientdashboard/BrowseDonations";
 import DonationDetails from "./pages/clientdashboard/Donationdetails";
-
-
-
+import Dashboard from "./pages/clientdashboard/Dashboard";
 
 export default function App() {
   return (
       <>
      <Routes>
-  <Route path="/" element={<BrowseDonations />} />
+     <Route path="/" element={<Dashboard />} />
+  <Route path="/Browsedonation" element={<BrowseDonations />} />
   {/* <Route path="/about" element={<Aboutpage />} />
   <Route path="/impact" element={<Impact />} />
   <Route path="/howitworks" element={<Howitworks />} />

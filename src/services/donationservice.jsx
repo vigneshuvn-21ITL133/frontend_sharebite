@@ -5,7 +5,7 @@ export const getDonations = () => {
 };
 
 export const getDonation = (id) => {
-  return api.get(`/donations/donations/${id}/`);
+  return api.get(`/donations/${id}/`);
 };
 
 export const createDonation = (data) => {

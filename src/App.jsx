@@ -9,13 +9,16 @@ import { Routes, Route } from "react-router-dom";
 import BrowseDonations from "./pages/clientdashboard/BrowseDonations";
 import DonationDetails from "./pages/clientdashboard/Donationdetails";
 import Dashboard from "./pages/clientdashboard/Dashboard";
+import MyRequests from "./pages/clientdashboard/MyRequests";
+
 
 export default function App() {
   return (
       <>
      <Routes>
      <Route path="/" element={<Dashboard />} />
-  <Route path="/Browsedonation" element={<BrowseDonations />} />
+     <Route path="/Browsedonation" element={<BrowseDonations />} />
+     <Route path="/myrequest" element={<MyRequests />} />
   {/* <Route path="/about" element={<Aboutpage />} />
   <Route path="/impact" element={<Impact />} />
   <Route path="/howitworks" element={<Howitworks />} />

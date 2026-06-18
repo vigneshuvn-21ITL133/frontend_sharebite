@@ -13,17 +13,11 @@ function BrowseDonations() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    loadDonations();
-  }, []);
-
   const loadDonations = async () => {
     try {
       const response = await getDonations();
-
-      console.log(response.data);
-
       setDonations(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error("Error fetching donations:", error);
     } finally {
@@ -31,25 +25,42 @@ function BrowseDonations() {
     }
   };
 
+  useEffect(() => {
+    loadDonations();
+  }, []);
+
+
+
   // Category Filter + Search Filter
-  const filteredDonations = donations.filter((item) => {
-    const matchesCategory =
-      selectedCategory === "all" ||
-      item.food_type === selectedCategory;
+  const filteredDonations = Array.isArray(donations)
+  ? donations.filter((item) => {
+      const matchesCategory =
+        selectedCategory === "all" ||
+        item.food_type === selectedCategory;
 
-    const matchesSearch =
-      item.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.address?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.donor_name?.toLowerCase().includes(searchTerm.toLowerCase());
+      const search = searchTerm.toLowerCase();
 
-    return matchesCategory && matchesSearch;
-  });
+      const matchesSearch =
+        (item.title || "")
+          .toLowerCase()
+          .includes(search) ||
+        (item.address || "")
+          .toLowerCase()
+          .includes(search) ||
+        (item.donor_name || "")
+          .toLowerCase()
+          .includes(search);
 
+      return matchesCategory && matchesSearch;
+    })
+  : [];
+
+  
   return (
     <div className="browse-container">
 
       {/* Header */}
-      <Link to="Browsedonation"></Link>
+      <Link to="/Browsedonation"></Link>
       <div className="browse-header">
         <h2>Browse Donations</h2>
 
@@ -172,7 +183,9 @@ function BrowseDonations() {
                 {/* Image */}
 
                 <img
-                  src={item.images.image}
+                  src={ item.images?.length > 0
+                    ? item.images[0].image
+                    : "/placeholder-food.jpg"}
                   alt={item.title}
                 />
 
@@ -208,6 +221,7 @@ function BrowseDonations() {
                     {new Date(
                       item.expiry_time
                     ).toLocaleString()}
+                    
                   </p>
 
                 </div>

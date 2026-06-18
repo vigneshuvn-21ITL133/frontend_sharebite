@@ -1,86 +1,103 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "../../styles/DonationDetails.css";
-import { useNavigate } from "react-router-dom";
-
-
-const donations = [
-  {
-    id: 1,
-    title: "Veg Pulao (10 packs)",
-    donor: "Hotel GreenPark",
-    location: "Indiranagar, Bangalore",
-    quantity: "10 packs",
-    expiry: "2 Hours",
-    pickupTime: "12:30 PM",
-    description:
-      "Freshly prepared veg pulao. Safe for consumption.",
-    image: "/images/pulao.jpg",
-  },
-];
 
 function DonationDetails() {
-   const navigate = useNavigate
-
-
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  const donation = donations.find(
-    (item) => item.id === Number(id)
-  );
+  const [donation, setDonation] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadDonation();
+  }, []);
+
+  const loadDonation = async () => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/api/donations/donations/${id}/`);
+      setDonation(response.data);
+      // console.log(response.data)
+      console.log(donation.images)
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
 
   if (!donation) {
     return <h2>Donation Not Found</h2>;
   }
 
+
+
   return (
     <div className="details-container">
 
+      <div className="details-image">
 
-     <div className="details-image">
-      <img
-        src=""
-        alt={donation.title}
-      />
+        <img
+          src={ donation.images?.length > 0
+            ? `http://127.0.0.1:8000${donation.images[0].image}`
+            : "/placeholder-food.jpg"}
+          alt={donation.title}
+        />
+
       </div>
 
       <div className="details-content">
+
         <h1>{donation.title}</h1>
 
         <p>
-          <strong>Donor:</strong>
-          {donation.donor}
+          <strong>Donor:</strong>{" "}
+          {donation.donor_name}
         </p>
 
         <p>
-          <strong>Location:</strong>
-          {donation.location}
+          <strong>Address:</strong>{" "}
+          {donation.address}
         </p>
 
         <p>
-          <strong>Quantity:</strong>
+          <strong>Food Type:</strong>{" "}
+          {donation.food_type}
+        </p>
+
+        <p>
+          <strong>Quantity:</strong>{" "}
           {donation.quantity}
         </p>
 
         <p>
-          <strong>Expiry:</strong>
-          {donation.expiry}
+          <strong>Expiry:</strong>{" "}
+          {new Date(
+            donation.expiry_time
+          ).toLocaleString()}
         </p>
 
         <p>
-          <strong>Pickup Time:</strong>
-          {donation.pickupTime}
-        </p>
-
-        <p>
-          <strong>Description:</strong>
+          <strong>Description:</strong>{" "}
           {donation.description}
         </p>
-        
-        <div>
-        <button className="details-request-btn"  onClick={() => navigate(`/request-food/${donation.id}`)}>
+
+        <button
+          className="details-request-btn"
+          onClick={() =>
+            navigate(
+              `/request-food/${donation.id}`
+            )
+          }
+        >
           Request Food
         </button>
-        </div>
+
       </div>
 
     </div>

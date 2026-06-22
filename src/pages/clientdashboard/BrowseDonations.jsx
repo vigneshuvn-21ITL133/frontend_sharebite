@@ -17,7 +17,6 @@ function BrowseDonations() {
     try {
       const response = await getDonations();
       setDonations(response.data);
-      console.log(response.data)
     } catch (error) {
       console.error("Error fetching donations:", error);
     } finally {
@@ -183,9 +182,9 @@ function BrowseDonations() {
                 {/* Image */}
 
                 <img
-                  src={ item.images?.length > 0
-                    ? item.images[0].image
-                    : "/placeholder-food.jpg"}
+                    src={ item.images?.length > 0
+                      ? item.images[0].image
+                      : "/placeholder-food.jpg"}
                   alt={item.title}
                 />
 

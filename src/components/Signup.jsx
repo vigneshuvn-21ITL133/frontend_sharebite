@@ -9,17 +9,26 @@ export default function Signup() {
                 <p>Join us and make an impact</p>
                 <form>
                     <div>
-                        <label>Full Name</label>
+                        <label>Username</label>
                         <br />
-                        <input type="text" placeholder="Enter the Full Name" required />
+                        <input type="text" placeholder="Enter the Username" required />
                         <br />
                     </div>
                     <div>
-                        <label>Email or Phone</label>
+                        <label>Email</label>
                         <br />
-                        <input type="text" placeholder="Enter the Email" required />
+                        <input type="email" placeholder="Enter the Email" required />
                         <br />
                     </div>
+                     
+                    <div>
+                        <label>Phone</label>
+                        <br />
+                        <input type="telephone" placeholder="Enter the Phone" required />
+                        <br />
+                    </div>
+
+
                     <div>
                         <label>password</label>
                         <br />

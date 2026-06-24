@@ -144,26 +144,42 @@
   
   .dash-donation-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    /* align-items: center; */
   }
-  
+
   .dash-donation-card {
+    display: flex;
+    width: 280px;
+    height: auto;
     background: white;
     border-radius: 15px;
     overflow: hidden;
+    align-items: center;
     box-shadow: 0 2px 10px rgba(0,0,0,.05);
   }
   
   .dash-donation-card img {
-    width: 100%;
+    width: 150px;
     height: 180px;
     object-fit: cover;
+    border-radius: 30%;
+  }
+
+
+  
+  .dash-donationdetails-card{
+    line-height: 18px;
+  }
+  .dash-donationdetails-card h3{
+    color: #22a447;
   }
   
-  .dash-donation-card h3,
-  .dash-donation-card p {
+  .dash-donationdetails-card h3,
+  .dash-donationdetails-card p {
     padding: 10px;
+    text-transform: capitalize;
   }
   
   /* Bottom */
@@ -195,3 +211,4 @@
     justify-content: space-between;
     margin-top: 20px;
   }
+

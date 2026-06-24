@@ -1,7 +1,7 @@
 import "../../styles/BrowseDonations.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getDonations } from "../../services/donationservice";
+import { getDonation } from "../../services/donationservice";
 import { Link } from "react-router-dom";
 
 function BrowseDonations() {
@@ -15,7 +15,7 @@ function BrowseDonations() {
 
   const loadDonations = async () => {
     try {
-      const response = await getDonations();
+      const response = await getDonation();
       setDonations(response.data);
     } catch (error) {
       console.error("Error fetching donations:", error);

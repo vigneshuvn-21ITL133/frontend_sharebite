@@ -1,5 +1,5 @@
 
-.signup-container{
+.register-container{
     margin-top: 50px;
     justify-self: center;
     line-height: 30px;
@@ -32,7 +32,7 @@ input{
    color: green;
 }
 
-.signup-button{
+.register-button{
     padding-right: 130px;
     padding-left: 130px;
     padding-top: 10px;

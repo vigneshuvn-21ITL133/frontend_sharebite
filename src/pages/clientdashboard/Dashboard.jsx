@@ -2,80 +2,63 @@ import "../../styles/dashboard.css";
 import Logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
+import { getProfile } from "../../services/authService";
+import { getDonation } from "../../services/donationservice";
+import { getMyRequests } from "../../services/requestService";
 
 function Dashboard() {
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(true);
+
   const [profile, setProfile] = useState({});
+  const [donations, setDonations] = useState([]);
+  const [requests, setRequests] = useState([]);
+
   const [stats, setStats] = useState({
     available_donations: 0,
     my_requests: 0,
     active_pickups: 0,
-    co2_saved: 0,
     meals_shared: 0,
     people_helped: 0,
+    co2_saved: 0,
   });
-
-  const [donations, setDonations] = useState([]);
-  const [activities, setActivities] = useState([]);
-
-  const token = localStorage.getItem("access_token");
-
-  const headers = {
-    Authorization: `Bearer ${token}`,
-  };
-
 
   useEffect(() => {
     loadDashboard();
   }, []);
 
-
   const loadDashboard = async () => {
     try {
-      // User Profile
-      const profileRes = await axios.get(
-        "http://127.0.0.1:8000/api/auth/profile",
-        { headers }
-      );
-
+      const profileRes = await getProfile();
       setProfile(profileRes.data);
 
-      // Donations
-      const donationRes = await axios.get(
-        "http://127.0.0.1:8000/api/donations/",
-        { headers }
-      );
+      const donationRes = await getDonation();
 
       const donationData = Array.isArray(donationRes.data)
         ? donationRes.data
         : donationRes.data.results || [];
 
       setDonations(donationData);
-      console.log(donationData)
-      // Requests
-      const requestRes = await axios.get(
-        "http://127.0.0.1:8000/api/requests/",
-        { headers }
-      );
+
+      const requestRes = await getMyRequests();
 
       const requestData = Array.isArray(requestRes.data)
         ? requestRes.data
         : requestRes.data.results || [];
 
-      setActivities(requestData);
+      setRequests(requestData);
 
-      // Calculate Stats
       setStats({
         available_donations: donationData.length,
         my_requests: requestData.length,
         active_pickups: requestData.filter(
-          (r) => r.status === "accepted"
+          (item) => item.status === "accepted"
         ).length,
-        co2_saved: donationData.length * 5,
-        meals_shared: donationData.length * 2,
+        meals_shared: donationData.length * 5,
         people_helped: donationData.length * 10,
+        co2_saved: donationData.length * 3,
       });
     } catch (error) {
       console.error(error);
@@ -83,11 +66,10 @@ function Dashboard() {
       if (error.response?.status === 401) {
         navigate("/login");
       }
+    } finally {
+      setLoading(false);
     }
   };
-
-
-  
 
   const handleLogout = () => {
     localStorage.removeItem("access_token");
@@ -96,23 +78,45 @@ function Dashboard() {
     navigate("/login");
   };
 
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <h2>Loading Dashboard...</h2>
+      </div>
+    );
+  }
+
   return (
     <div className="dash-container">
+
       {/* Sidebar */}
       <aside className="dash-sidebar">
+
         <div className="dash-logo">
           <img
             src={Logo}
-            alt="logo"
-            width={250}
-            height={130}
+            alt="ShareBite"
+            width={220}
           />
         </div>
 
         <nav className="dash-menu">
-          <Link className="dash-menu-items" to="/dashboard">
+
+          <Link
+            to="/dashboard"
+            className="dash-menu-items"
+          >
             Dashboard
           </Link>
+
+          {profile.role === "donor" && (
+            <Link
+              to="/donatefood"
+              className="dash-menu-items"
+            >
+              Donate Food
+            </Link>
+          )}
 
           <Link
             to="/Browsedonation"
@@ -129,55 +133,30 @@ function Dashboard() {
           </Link>
 
           <Link
-            to="/Activepickups"
-            className="dash-menu-items"
-          >
-            Active Pickups
-          </Link>
-
-          <Link
-            to="/messages"
-            className="dash-menu-items"
-          >
-            Messages
-          </Link>
-
-          <Link
-            to="/notifications"
-            className="dash-menu-items"
-          >
-            Notifications
-          </Link>
-
-          <Link
-            to="/myimpact"
-            className="dash-menu-items"
-          >
-            My Impact
-          </Link>
-
-          <Link
             to="/profile"
             className="dash-menu-items"
           >
             Profile
           </Link>
+
         </nav>
 
         <div className="dashboard-login-container">
           <button
-            className="dash-logout-btn"
             onClick={handleLogout}
+            className="dash-logout-btn"
           >
             Logout
           </button>
         </div>
+
       </aside>
 
-      {/* Main Content */}
+      {/* Main */}
       <main className="dash-main-content">
-        {/* Navbar */}
+
         <header className="dash-navbar">
+
           <input
             type="text"
             placeholder="Search donations..."
@@ -185,40 +164,40 @@ function Dashboard() {
           />
 
           <div className="dash-profile-section">
-            <span>
-              {profile.address || "Tamil Nadu"}
+
+            <span className="dash-role">
+              {profile.role}
             </span>
 
             <img
-              src="https://i.pravatar.cc/100"
+              src="/default-avatar.png"
               alt="profile"
               className="dash-profile-img"
             />
+
           </div>
+
         </header>
 
-        {/* Welcome */}
         <section className="dash-welcome">
+
           <h1>
-            Welcome back,
+            Welcome Back,
             {" "}
-            {profile.first_name ||
-              profile.username ||
-              "User"}
+            {profile.username}
             👋
           </h1>
 
           <p>
-            Let's make a difference today.
+            Together we can reduce food waste and help people.
           </p>
+
         </section>
 
-        {/* Stats */}
         <section className="dash-stats-grid">
+
           <div className="dash-stat-card">
-            <h2>
-              {stats.available_donations}
-            </h2>
+            <h2>{stats.available_donations}</h2>
             <p>Available Donations</p>
           </div>
 
@@ -233,105 +212,94 @@ function Dashboard() {
           </div>
 
           <div className="dash-stat-card">
-            <h2>
-              {stats.co2_saved} kg
-            </h2>
+            <h2>{stats.meals_shared}</h2>
+            <p>Meals Shared</p>
+          </div>
+
+          <div className="dash-stat-card">
+            <h2>{stats.people_helped}</h2>
+            <p>People Helped</p>
+          </div>
+
+          <div className="dash-stat-card">
+            <h2>{stats.co2_saved}kg</h2>
             <p>CO₂ Saved</p>
           </div>
+
         </section>
 
         {/* Donations */}
+
         <section className="dash-card-section">
+
           <div className="dash-section-header">
-            <h2>
-              Recommended Donations
-            </h2>
+
+            <h2>Latest Donations</h2>
 
             <Link to="/Browsedonation">
               View All
             </Link>
+
           </div>
 
           <div className="dash-donation-grid">
-            {donations
-              .slice(0, 4)
-              .map((item) => (
-                <div
-                  className="dash-donation-card"
-                  key={item.id}
-                >
+
+            {donations.slice(0, 4).map((item) => (
+              <div
+                key={item.id}
+                className="dash-donation-card"
+              >
+
+                {item.images?.length > 0 && (
                   <img
-                    src={
-                      item.images?.length > 0
-                        ? `http://127.0.0.1:8000${item.images[0].image}`
-                        : "/placeholder-food.jpg"
-                    }
+                    src={`http://127.0.0.1:8000${item.images[0].image}`}
                     alt={item.title}
                   />
+                )}
 
-                  <h3>{item.title}</h3>
+                <h3>{item.title}</h3>
 
-                  <p>{item.address}</p>
-                </div>
-              ))}
+                <p>{item.food_type}</p>
+
+                <p>{item.quantity} Items</p>
+
+                <p>{item.address}</p>
+
+              </div>
+            ))}
+
           </div>
+
         </section>
 
-        {/* Bottom Section */}
+        {/* Requests */}
+
         <section className="dash-bottom-grid">
+
           <div className="dash-activity-card">
-            <h2>Recent Activity</h2>
+
+            <h2>Recent Requests</h2>
 
             <ul>
-              {activities
-                .slice(0, 5)
-                .map((item) => (
+
+              {requests.length > 0 ? (
+                requests.slice(0, 5).map((item) => (
                   <li key={item.id}>
-                    Donation #{item.donation}
-                    {" "}
-                    -
-                    {" "}
-                    {item.status}
+                    Request #{item.id} - {item.status}
                   </li>
-                ))}
+                ))
+              ) : (
+                <li>No requests available</li>
+              )}
+
             </ul>
+
           </div>
 
-          <div className="dash-impact-card">
-            <h2>Your Impact</h2>
-
-            <div className="dash-impact-item">
-              <span>
-                Meals Shared
-              </span>
-
-              <strong>
-                {stats.meals_shared}
-              </strong>
-            </div>
-
-            <div className="dash-impact-item">
-              <span>
-                CO₂ Saved
-              </span>
-
-              <strong>
-                {stats.co2_saved} kg
-              </strong>
-            </div>
-
-            <div className="dash-impact-item">
-              <span>
-                People Helped
-              </span>
-
-              <strong>
-                {stats.people_helped}
-              </strong>
-            </div>
-          </div>
         </section>
+
       </main>
+
     </div>
   );
 }

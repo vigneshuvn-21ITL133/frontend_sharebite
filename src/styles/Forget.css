@@ -13,17 +13,15 @@
     color: grey;
 }
 
-
-
-form{
+.forget-container form{
     backdrop-filter: blur(5px);
 }
 
-label{
+.forget-container label{
     font-weight: bolder;
 }
 
-input{
+.forget-container input{
     width: 315px;
     height: 30px;
     border-radius: 10px;

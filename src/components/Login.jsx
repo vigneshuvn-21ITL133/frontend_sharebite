@@ -57,7 +57,7 @@ export default function Login() {
       console.error(error);
 
       if (error.response?.data?.detail) {
-        alert(error.response.data.detail);
+        alert("Login failed. Please check your credentials.");
       } else {
         alert("Invalid Username or Password");
       }
@@ -118,10 +118,10 @@ export default function Login() {
           <span>
             Don't have an account?{" "}
             <Link
-              className="signuplink"
-              to="/signup"
+              className="registerlink"
+              to="/register"
             >
-              Signup
+              Register
             </Link>
           </span>
         </div>

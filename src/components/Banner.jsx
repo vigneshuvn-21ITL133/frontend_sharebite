@@ -102,9 +102,8 @@ export default function Banner() {
               </div>
               <div className="banner-item">
                 <h2>180+</h2>
-                <span>Ngo parters</span>
-              </div>
-            </div>
+                <span>NGO partners</span>
+              </div>            </div>
             <div className="banner-icon-details-types">
               <div>
                 <svg
@@ -127,9 +126,8 @@ export default function Banner() {
       </div>
       <div className="banner-green-board">
         <p>
-          " Together, we can bulld a world whers no good food goes to waste "
-        </p>
-      </div>
+          " Together, we can build a world where no good food goes to waste "
+        </p>      </div>
 
       <div className="banner-video-content">
         <iframe
@@ -137,12 +135,11 @@ export default function Banner() {
           height="315"
           src="https://www.youtube.com/embed/757JydJni8I?si=Y5oXm1349bG9smAD"
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>      </div>
     </>
   );
 }

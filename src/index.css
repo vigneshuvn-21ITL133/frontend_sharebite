@@ -3,7 +3,14 @@
  font-family: "Jost", sans-serif;
  margin: 0;
  padding: 0;
+
 }
+
+
+input[type="text"] {
+    font-size: 18px;
+}
+
 
 
 

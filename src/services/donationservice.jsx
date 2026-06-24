@@ -1,13 +1,22 @@
-import api from "../api/api"
+import api from "../api/api";
 
-export const getDonations = () => {
-  return api.get("/donations/donations");
+export const createDonation = (formData) => {
+  return api.post(
+    "/donations/",
+    formData,
+    {
+      headers: {
+        "Content-Type":
+          "multipart/form-data",
+      },
+    }
+  );
 };
 
-export const getDonation = (id) => {
+export const getDonation = () => {
+  return api.get("/donations/");
+};
+
+export const getDonationById = (id) => {
   return api.get(`/donations/${id}/`);
-};
-
-export const createDonation = (data) => {
-  return api.post("/donations/", data);
 };

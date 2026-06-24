@@ -48,20 +48,20 @@
     padding: 10px 30px;
     margin-top: 80px;
     background: #ff4444;
+    gap: 8px;
     border: none;
     color: white;
     border-radius: 10px;
-    align-items: center;
     cursor: pointer;
+    font-size: 15px;
   }
 
  .dash-logout-btn:hover{
     background-color: #f60707;
     font-weight: bolder;
+    transition: 1ms;
 
  }
-
-
   
   /* Main */
   
@@ -97,6 +97,13 @@
     border-radius: 50%;
   }
   
+ .dash-role{
+  font-weight: bolder;
+  font-size: medium;
+  text-transform: uppercase;
+ }
+
+
   /* Welcome */
   
   .dash-welcome {

@@ -20,7 +20,7 @@ export default function Navbar() {
       </nav>
       <nav className="button-container">
         <Link className="login-btn" to="/login">Log in</Link>
-        <Link className="signup-btn" to="/signup">Sign up</Link>
+        <Link className="register-btn" to="/register">Sign up</Link>
       </nav>
     </div>
     </>

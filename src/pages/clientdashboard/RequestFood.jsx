@@ -17,12 +17,19 @@ function RequestFood() {
     notes: "",
   });
 
+
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+
+
+  // if(formData.quantity_requested.length >10){
+  //   alert("Number only in 10 digits")
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +74,7 @@ function RequestFood() {
           onSubmit={handleSubmit}
         >
 
-          <div className="form-group">
+          <div className="request-form-group">
             <label>Donation ID</label>
             <input
               type="text"
@@ -156,7 +163,7 @@ function RequestFood() {
 
           <button
             type="submit"
-            className="submit-btn"
+            className="request-submit-btn"
           >
             Submit Request
           </button>

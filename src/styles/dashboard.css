@@ -144,14 +144,14 @@
   
   .dash-donation-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3,1fr);
     /* align-items: center; */
+    gap: 10px;
   }
 
   .dash-donation-card {
     display: flex;
-    width: 280px;
+    width: auto;
     height: auto;
     background: white;
     border-radius: 15px;
@@ -171,6 +171,7 @@
   
   .dash-donationdetails-card{
     line-height: 18px;
+    text-align: center;
   }
   .dash-donationdetails-card h3{
     color: #22a447;

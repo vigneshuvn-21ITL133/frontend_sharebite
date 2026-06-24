@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../../styles/DonationDetails.css";
 import { getDonationById } from "../../services/donationservice";
@@ -16,7 +16,7 @@ function DonationDetails() {
 
   const loadDonation = async () => {
     try {
-      const response = await getDonationById();
+      const response = await getDonationById(id);
       setDonation(response.data);
     } catch (error) {
       console.error(error);
@@ -79,6 +79,7 @@ function DonationDetails() {
           Request Food
         </button>
       </div>
+      <Link to="/dashboard"></Link>
     </div>
   );
 }

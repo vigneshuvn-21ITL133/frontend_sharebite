@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createDonation } from "../../services/donationservice";
 import "../../styles/DonateFood.css";
+
 
 function DonateFood() {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ function DonateFood() {
 
         <p>Share food and help people in need.</p>
 
-        <form onSubmit={handleSubmit}>
+        <form className="donate-form" onSubmit={handleSubmit}>          
           <div className="form-group">
             <label>Food Title</label>
 
@@ -164,6 +165,7 @@ function DonateFood() {
           </button>
         </form>
       </div>
+      <Link className="details-backnavigation"to="/dashboard"></Link>
     </div>
   );
 }

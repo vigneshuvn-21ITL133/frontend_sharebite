@@ -27,11 +27,11 @@ export default function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setLoading(true)
     if (formData.password !== formData.confirm_password) {
       alert("Passwords do not match");
       return;
     }
+    setLoading(true)
 
     try {
       await registerUser({
@@ -52,6 +52,8 @@ export default function Register() {
       } else {
         alert("Registration Failed");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -161,6 +163,7 @@ export default function Register() {
         <button
           type="submit"
           className="register-button"
+          disabled={loading}
         >
 
           {loading ? "Register":"Registered..."}

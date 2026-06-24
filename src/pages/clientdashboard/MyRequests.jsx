@@ -114,6 +114,7 @@
 
             </div>
           )}
+          <Link className="details-backnavigation"to="/dashboard"></Link>
         </div>
       );
     }

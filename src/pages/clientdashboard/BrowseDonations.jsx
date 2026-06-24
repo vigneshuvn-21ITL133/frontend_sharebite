@@ -1,8 +1,7 @@
 import "../../styles/BrowseDonations.css";
-import { useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDonation } from "../../services/donationservice";
-import { Link } from "react-router-dom";
 
 function BrowseDonations() {
   const navigate = useNavigate();
@@ -62,7 +61,7 @@ function BrowseDonations() {
       <Link to="/Browsedonation"></Link>
       <div className="browse-header">
         <h2>Browse Donations</h2>
-
+        
         <div className="search-filter">
           <input
             type="text"
@@ -252,6 +251,7 @@ function BrowseDonations() {
       {/* Pagination */}
 
       <div className="browser-pagination">
+      <Link className="details-backnavigation"to="/dashboard">Back</Link>
         <button>{"<"}</button>
 
         <button className="current">
@@ -264,7 +264,7 @@ function BrowseDonations() {
 
         <button>{">"}</button>
       </div>
-
+    
     </div>
   );
 }

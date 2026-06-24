@@ -265,15 +265,14 @@ return ( <div className="dash-container"> <aside className="dash-sidebar">
 
       <div className="dash-donation-grid">
 
-        {donations.slice(0, 4).map((item) => (
+        {donations.slice(0, 3).map((item) => (
           <div
             key={item.id}
             className="dash-donation-card"
           >
-
             {item.images &&
               item.images.length > 0 && (
-                <div className=".dash-donationimg-card">
+                <div className="dash-donationimg-card">
                 <img
                   src={item.images[0].image}
                   alt={item.title}

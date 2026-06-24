@@ -1,30 +1,14 @@
-import axios from "axios";
-
-const API_URL = "http://127.0.0.1:8000/api/requests/";
+import api from "../api/api";
 
 export const createRequest = (data) => {
-  const token = localStorage.getItem("access_token");
-
-  return axios.post(
-    API_URL,
-    data,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  return api.post("/requests/", data);
 };
 
 export const getMyRequests = () => {
-  const token = localStorage.getItem("access_token");
+  return api.get("/requests/");
+};
 
-  return axios.get(
-    API_URL,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+
+export const getIncomingRequests = () => {
+  return api.get("/requests/incoming/");
 };

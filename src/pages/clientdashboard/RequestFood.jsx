@@ -2,6 +2,9 @@ import "../../styles/RequestFood.css";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { createRequest } from "../../services/requestService";
+import { toast } from "react-toastify";
+
+
 
 function RequestFood() {
   const { id } = useParams();
@@ -27,10 +30,6 @@ function RequestFood() {
   };
 
 
-  // if(formData.quantity_requested.length >10){
-  //   alert("Number only in 10 digits")
-  // }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -45,7 +44,7 @@ function RequestFood() {
 
       await createRequest(requestData);
 
-      alert("Food request submitted successfully!");
+      toast.success("Food request submitted successfully!");
 
       navigate("/myrequest");
     } catch (error) {

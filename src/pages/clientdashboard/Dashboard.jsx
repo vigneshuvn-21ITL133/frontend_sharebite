@@ -3,6 +3,7 @@ import Logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+
 import { getProfile } from "../../services/authService";
 import { getDonation } from "../../services/donationservice";
 import { getMyRequests } from "../../services/requestService";
@@ -11,12 +12,10 @@ function Dashboard() {
 const navigate = useNavigate();
 
 const [loading, setLoading] = useState(true);
-
-const [profile, setProfile] = useState({});
-
+const [profile, setProfile] = useState(null); //{}-> null
 const [donations, setDonations] = useState([]);
-
 const [requests, setRequests] = useState([]);
+
 
 const [stats, setStats] = useState({
 available_donations: 0,
@@ -35,8 +34,6 @@ const loadDashboard = async () => {
 try {
 const profileRes = await getProfile();
 const userProfile = profileRes.data;
-
-
   setProfile(userProfile);
 
   const donationRes = await getDonation();
@@ -104,17 +101,17 @@ const handleLogout = () => {
   localStorage.clear()
 navigate("/login");
 
-
 };
 
 if (loading) {
-return ( <div className="loading-container"> <h2>Loading Dashboard...</h2> </div>
+return ( <div className="loading-container"> <h2>Loading Dashboard...</h2></div>
 );
 }
 
-return ( <div className="dash-container"> <aside className="dash-sidebar">
+return ( 
 
-
+<div className="dash-container"> 
+  <aside className="dash-sidebar">
     <div className="dash-logo">
       <img
         src={Logo}
@@ -191,11 +188,9 @@ return ( <div className="dash-container"> <aside className="dash-sidebar">
           {profile.role}
         </span>
 
-        <img
-          src="/default-avatar.png"
-          alt="profile"
-          className="dash-profile-img"
-        />
+        <div className="dash-profile">
+        {profile?.username?.[0]?.toUpperCase()}
+        </div>
 
       </div>
 

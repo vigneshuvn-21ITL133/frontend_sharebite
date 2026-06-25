@@ -2,6 +2,7 @@ import '../styles/Forget.css'
 import { Link } from 'react-router-dom'
 import { forgotPassword } from "../services/authService";
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 function Forget() {
 
 
@@ -17,11 +18,11 @@ function Forget() {
       const res =
         await forgotPassword(email);
 
-      alert(res.data.message);
+      toast.info(res.data.message);
 
     } catch (error) {
 
-      alert(
+      toast.error(
         error.response?.data?.error
       );
     }

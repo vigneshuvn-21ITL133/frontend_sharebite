@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { loginUser } from "../services/authService";
 import "../styles/Login.css";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -50,16 +51,16 @@ export default function Login() {
         response.data.refresh
       );
 
-      alert("Login Successful!");
+      toast.success("Login Successful!");
 
       navigate("/");
     } catch (error) {
       console.error(error);
 
       if (error.response?.data?.detail) {
-        alert("Login failed. Please check your credentials.");
+        toast.warning("Login failed. Please check your credentials.");
       } else {
-        alert("Invalid Username or Password");
+        toast.error("Invalid Username or Password");
       }
     } finally {
       setLoading(false);

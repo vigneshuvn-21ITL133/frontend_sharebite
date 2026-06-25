@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { resetPassword } from "../services/authService";
 import './../styles/Reset.css'
+import { toast } from "react-toastify";
 
 
 function ResetPassword() {
@@ -25,9 +26,7 @@ function ResetPassword() {
     if (
       password !== confirmPassword
     ) {
-      alert(
-        "Passwords do not match"
-      );
+      toast.warning("Passwords do not match");
       return;
     }
 
@@ -39,9 +38,7 @@ function ResetPassword() {
         password,
       });
 
-      alert(
-        "Password reset successful"
-      );
+      toast.success("Password reset successful");
 
       navigate("/login");
 
@@ -49,7 +46,7 @@ function ResetPassword() {
 
       console.error(error);
 
-      alert(
+      toast.warning(
         error.response?.data?.detail ||
         "Reset failed"
       );

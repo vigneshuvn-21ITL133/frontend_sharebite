@@ -91,12 +91,19 @@
     gap: 15px;
   }
   
-  .dash-profile-img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+  .dash-profile{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-image: linear-gradient(white,rgb(103, 208, 103),green);
+    color: white;
+    font-weight: bolder;
+    font-size: 2rem;
+    border: 1px solid grey;
   }
-  
+
+
  .dash-role{
   font-weight: bolder;
   font-size: medium;
@@ -164,14 +171,13 @@
     width: 150px;
     height: 180px;
     object-fit: cover;
-    border-radius: 30%;
+    border-top-right-radius: 20px;
   }
 
 
   
   .dash-donationdetails-card{
     line-height: 18px;
-    text-align: center;
   }
   .dash-donationdetails-card h3{
     color: #22a447;

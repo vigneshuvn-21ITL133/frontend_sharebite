@@ -33,3 +33,21 @@ export const getProfile = () => {
     }
   );
 };
+  
+export const forgotPassword = (email) => {
+  return axios.post(
+    `${API_URL}/forgotpassword/`,
+    { email }
+  );
+};
+
+export const resetPassword = (data) => {
+  return axios.post(
+    `${API_URL}/resetpassword/`,
+    {
+      uid: data.uid,
+      token: data.token,
+      password: data.password,
+    }
+  );
+};

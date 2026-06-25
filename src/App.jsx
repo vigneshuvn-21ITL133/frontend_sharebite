@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Forget from "./components/Forget";
+import ResetPassword from "./components/ResetPassword";
+
 
 import Dashboard from "./pages/clientdashboard/Dashboard";
 import BrowseDonations from "./pages/clientdashboard/BrowseDonations";
@@ -14,14 +16,13 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import DonateFood from "./pages/clientdashboard/Donatefood";
 
 
-
 export default function App() {
 return ( <Routes>
 {/* Public Routes */}
 <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
 <Route path="/forgetpassword" element={<Forget />} />
-
+<Route path="/reset-password/:uid/:token" element={<ResetPassword />}/>
   {/* Protected Routes */}
 
   <Route

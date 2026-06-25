@@ -1,0 +1,29 @@
+.reset-h1{
+    color: green;
+}
+
+.reset-card{
+    margin-top: 10%;
+    width: auto;
+    height: auto;
+    border-radius: 15px;
+    justify-self: center;
+    border: 1px solid rgb(232, 229, 229);
+}
+
+.resetform-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 350px;
+    padding: 10px;
+}
+
+.reset-btn-container button{
+   padding: 10px 20px;
+   border-radius: 15px;
+   border: none;
+   color: white;
+   background-color: green;
+   font-weight: bolder;
+}
